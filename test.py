@@ -1,3 +1,4 @@
+from urllib import response
 from app import app
 
 def test1():
@@ -15,4 +16,8 @@ def test2():
 
 
 def test3():
-    pass
+    """A dummy docstring"""
+    response = app.test_client().get("/edit")
+    assert b"Movie List App" in response.data
+    assert b"Movie Title" in response.data
+    assert b"Add" in response.data
