@@ -69,6 +69,9 @@ def home():
     return render_template("base.html", movie_list=movie_list)
 
 
+'''
+Establishing the add route to post a new item to the database. Line 78 creates the variable title and uses response.form.get() to pull the value from the input box on the form and assigns it to the variable. Then new_movie creates the object based on the Movie class and sets the properties. Next, db.session.add() adds the new item to the database. session.commit() is used to commit the current transaction. Finally, the user is "redirected" back to the same page (and not to the /add url)
+'''
 @app.route("/add", methods=["POST"])
 def add():
     """A dummy docstring"""
